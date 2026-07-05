@@ -1,10 +1,12 @@
-
-
 \# EventHub - Backend Ticketing API
 
 
 
 EventHub is a lightweight backend API built with Django and Django REST Framework (DRF) designed to handle core event ticketing workflows. It allows users to view events, reserve seating blocks, and process cancellations while safely managing seat inventory constraints.
+
+
+
+\---
 
 
 
@@ -32,63 +34,67 @@ EventHub is a lightweight backend API built with Django and Django REST Framewor
 
 &#x20;  pip install -r requirements.txt
 
-Run database migrations to set up SQLite tables:
+
+
+\### Run database migrations to set up SQLite tables:
+
+&#x20;   
+
+&#x20;     python manage.py makemigrations
+
+&#x20;     python manage.py migrate
 
 
 
-Bash
-
-python manage.py makemigrations
-
-python manage.py migrate
-
-Start the local backend development server:
 
 
+\### Start the local backend development server:
 
-Bash
+&#x20;    
 
-python manage.py runserver
-
-The backend will start listening at: http://127.0.0.1:8000/api/
+&#x20;        python manage.py runserver
 
 
 
-API Endpoints Summary
+\## API Endpoints Summary
+
+
 
 1\. Events Endpoint (/api/events/)
 
-GET /api/events/ - Lists all events ordered by date.
+&#x20;  GET /api/events/ - Lists all events ordered by date.
 
 
 
-Query Filters: Filter results by exact status (?status=upcoming) or search venues (?venue=bangalore).
+&#x20;  Query Filters: Filter results by exact status (?status=upcoming) or search venues (?      venue=bangalore).
 
 
 
-POST /api/events/ - Registers a new event profile. Requires tracking fields (title, venue, date, total\_seats, available\_seats).
+&#x20;  POST /api/events/ - Registers a new event profile. Requires tracking fields (title, venue, date, total\_seats, available\_seats).
 
 
 
 2\. Reservations Endpoint (/api/reservations/)
 
-GET /api/reservations/ - Displays registration records.
+&#x20;  GET /api/reservations/ - Displays registration records.
 
 
 
-Query Filters: Lookup specific event ledger historical data (?event\_id=1).
+&#x20;  Query Filters: Lookup specific event ledger historical data (?event\_id=1).
 
 
 
-POST /api/reservations/ - Claims seat counts on an active event. Deducts requested quantities out of available\_seats immediately on creation.
+&#x20;  POST /api/reservations/ - Claims seat counts on an active event. Deducts requested quantities out of available\_seats immediately on creation.
 
 
 
-POST /api/reservations/{id}/cancel/ - Custom action path that flags a ticket reservation status as cancelled and restores the original seat reservation count back to the parent event resource automatically.
+&#x20;  POST /api/reservations/{id}/cancel/ - Custom action path that flags a ticket reservation status as cancelled and restores the original seat reservation count back to the parent event resource automatically.
 
 
 
-Technical Design Decisions
+\## Technical Design Decisions
+
+
 
 In-Serializer Business Validation
 
@@ -103,4 +109,16 @@ Placing data sanitation constraints (validate()) right next to database generati
 
 
 While an enterprise-scale ecosystem experiencing heavy traffic concurrency would require explicit database transactions (transaction.atomic()) or database row-level constraints to entirely rule out race conditions, keeping these validations localized inside the serialization engine decouples structural layout definitions from routing mechanics cleanly and satisfies standard DRF best practices for this assignment tier.
+
+
+
+Postman Screenshots
+
+Reservation Creation (Success)
+
+Overbooking Validation Failure
+
+Successful Ticket Cancellation
+
+
 
