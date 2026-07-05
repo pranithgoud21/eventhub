@@ -38,7 +38,7 @@ EventHub is a lightweight backend API built with Django and Django REST Framewor
 
 \### Run database migrations to set up SQLite tables:
 
-&#x20;   
+&#x20;
 
 &#x20;     python manage.py makemigrations
 
@@ -50,7 +50,7 @@ EventHub is a lightweight backend API built with Django and Django REST Framewor
 
 \### Start the local backend development server:
 
-&#x20;    
+&#x20;
 
 &#x20;        python manage.py runserver
 
@@ -112,13 +112,23 @@ While an enterprise-scale ecosystem experiencing heavy traffic concurrency would
 
 
 
-Postman Screenshots
-
-Reservation Creation (Success)
-
-Overbooking Validation Failure
-
-Successful Ticket Cancellation
+\## Postman Screenshots
 
 
+
+\### Reservation Creation (Success)
+
+!\[success\_reservation](success\_reservation.png)
+
+
+
+\### Overbooking Validation Failure
+
+!\[overbooking\_error](overbooking\_error.png)
+
+
+
+\### Successful Ticket Cancellation
+
+!\[success\_cancellation](success\_cancellation.png)
 
