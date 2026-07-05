@@ -118,17 +118,17 @@ While an enterprise-scale ecosystem experiencing heavy traffic concurrency would
 
 \### Reservation Creation (Success)
 
-!\[success\_reservation](success\_reservation.png)
+!\[success\_reservation](success\_reservation.png?v=1)
 
 
 
 \### Overbooking Validation Failure
 
-!\[overbooking\_error](overbooking\_error.png)
+!\[overbooking\_error](overbooking\_error.png?v=1)
 
 
 
 \### Successful Ticket Cancellation
 
-!\[success\_cancellation](success\_cancellation.png)
+!\[success\_cancellation](success\_cancellation.png?v=1)
 
