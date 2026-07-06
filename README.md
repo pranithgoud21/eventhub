@@ -98,15 +98,14 @@ While an enterprise-scale ecosystem experiencing heavy traffic concurrency would
 
 
 
-Postman Screenshots
+### Postman Screenshots
 
-Reservation Creation (Success)
-c:\Users\prani_fje1y5n\eventhub\success_reservation.png
+#### Reservation Creation (Success)
+![Reservation Creation](images/success_reservation.png)
 
-Overbooking Validation Failure
-c:\Users\prani_fje1y5n\eventhub\overbooking_error.png
+#### Overbooking Validation Failure
+![Overbooking Validation](images/overbooking_error.png)
 
-Successful Ticket Cancellation
-c:\Users\prani_fje1y5n\eventhub\success_cancellation.png
-
+#### Successful Ticket Cancellation
+![Ticket Cancellation](images/success_cancellation.png)
 
