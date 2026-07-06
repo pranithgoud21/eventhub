@@ -30,71 +30,57 @@ EventHub is a lightweight backend API built with Django and Django REST Framewor
 
 1\. Install project dependencies:
 
-&#x20;  ```bash
+```bash
 
-&#x20;  pip install -r requirements.txt
-
-
-
-\### Run database migrations to set up SQLite tables:
-
-&#x20;
-
-&#x20;     python manage.py makemigrations
-
-&#x20;     python manage.py migrate
+pip install -r requirements.txt
 
 
 
+python manage.py makemigrations
 
-
-\### Start the local backend development server:
-
-&#x20;
-
-&#x20;        python manage.py runserver
+python manage.py migrate
 
 
 
-\## API Endpoints Summary
+python manage.py runserver
 
 
+
+API Endpoints Summary
 
 1\. Events Endpoint (/api/events/)
 
-&#x20;  GET /api/events/ - Lists all events ordered by date.
+GET /api/events/ - Lists all events ordered by date.
 
 
 
-&#x20;  Query Filters: Filter results by exact status (?status=upcoming) or search venues (?      venue=bangalore).
+Query Filters: Filter results by exact status (?status=upcoming) or search venues (?venue=bangalore).
 
 
 
-&#x20;  POST /api/events/ - Registers a new event profile. Requires tracking fields (title, venue, date, total\_seats, available\_seats).
+POST /api/events/ - Registers a new event profile. Requires tracking fields (title, venue, date, total\_seats, available\_seats).
 
 
 
 2\. Reservations Endpoint (/api/reservations/)
 
-&#x20;  GET /api/reservations/ - Displays registration records.
+GET /api/reservations/ - Displays registration records.
 
 
 
-&#x20;  Query Filters: Lookup specific event ledger historical data (?event\_id=1).
+Query Filters: Lookup specific event ledger historical data (?event\_id=1).
 
 
 
-&#x20;  POST /api/reservations/ - Claims seat counts on an active event. Deducts requested quantities out of available\_seats immediately on creation.
+POST /api/reservations/ - Claims seat counts on an active event. Deducts requested quantities out of available\_seats immediately on creation.
 
 
 
-&#x20;  POST /api/reservations/{id}/cancel/ - Custom action path that flags a ticket reservation status as cancelled and restores the original seat reservation count back to the parent event resource automatically.
+POST /api/reservations/{id}/cancel/ - Custom action path that flags a ticket reservation status as cancelled and restores the original seat reservation count back to the parent event resource automatically.
 
 
 
-\## Technical Design Decisions
-
-
+Technical Design Decisions
 
 In-Serializer Business Validation
 
@@ -112,27 +98,15 @@ While an enterprise-scale ecosystem experiencing heavy traffic concurrency would
 
 
 
-\---
+Postman Screenshots
 
+Reservation Creation (Success)
+c:\Users\prani_fje1y5n\eventhub\success_reservation.png
 
+Overbooking Validation Failure
+c:\Users\prani_fje1y5n\eventhub\overbooking_error.png
 
-\## Postman Screenshots
+Successful Ticket Cancellation
+c:\Users\prani_fje1y5n\eventhub\success_cancellation.png
 
-
-
-\### Reservation Creation (Success)
-
-!\[success\_reservation](./success\_reservation.png)
-
-
-
-\### Overbooking Validation Failure
-
-!\[overbooking\_error](./overbooking\_error.png)
-
-
-
-\### Successful Ticket Cancellation
-
-!\[success\_cancellation](./success\_cancellation.png)
 
